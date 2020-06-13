@@ -1,5 +1,7 @@
 Set-StrictMode -version latest;
 
+$SpotifyApiUri = "https://api.spotify.com/v1";
+
 function Get-PagedUpcomingConcertResults($Uri)
 {
 	$concerts = @()
@@ -24,8 +26,6 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 	try
 	{
 		$result = Invoke-WebRequest -Method $Method -Uri $Uri -Headers $headers -Body $Body
-
-
 	}
 	catch [System.Net.WebException]
 	{
@@ -88,11 +88,11 @@ function Get-ErrorFromResponseBody($Error)
 
 function Get-UpcomingAustinConcerts()
 {
-	$SongkickApiKey = ""
+	$SongkickApiKey = "REPLACE_ME"
 	# Limit of 50 per page
 	# $MetroId = "9179" # AUSTIN
 	$MetroId = "29314" # Dublin
-	$AustinSongkick = "https://api.songkick.com/api/3.0/metro_areas/$MetroId/calendar.json?apikey=$SongkickApiKey&min_date=2019-03-01&max_date=2019-03-31"
+	$AustinSongkick = "https://api.songkick.com/api/3.0/metro_areas/$MetroId/calendar.json?apikey=$SongkickApiKey&min_date=2019-08-10&max_date=2019-08-31"
 
 	$Concerts = Get-PagedUpcomingConcertResults $AustinSongkick
 
@@ -113,7 +113,7 @@ function Invoke-SpotifyRequest($Method, $Uri, $Body)
 
 function Search-SpotifyForArtist($Artist)
 {
-	$searchQuery = 'https://api.spotify.com/v1/search?q="{0}"&type=artist&market=IE' -f $Artist
+	$searchQuery = '{0}/search?q="{1}"&type=artist&market=IE' -f $SpotifyApiUri, $Artist
 	return Invoke-SpotifyRequest 'Get' $searchQuery
 }
 
@@ -134,18 +134,25 @@ function Get-SpotifyArtist($Artist)
 
 function Get-ArtistTopTracks($ArtistId)
 {
-	$searchQuery = 'https://api.spotify.com/v1/artists/{0}/top-tracks?country=IE' -f $ArtistId
+	$searchQuery = '{0}/artists/{1}/top-tracks?country=IE' -f $SpotifyApiUri, $ArtistId
 	return Invoke-SpotifyRequest 'Get' $searchQuery
 }
 
-function Get-TopNTrackUris($TopTracks, $N)
+function Get-TopNTrackUris($TopTracks, $N, $AllowExplict)
 {
-	if ($TopTracks.tracks.Length -lt $N)
+	$TopTracks = $TopTracks.tracks
+
+	if (-not $AllowExplict)
 	{
-		return ($TopTracks.tracks | Select-Object -expand uri) -join ","
+		$TopTracks = $TopTracks | where explicit -eq $false
 	}
 
-	return ($TopTracks.tracks[0..$($N-1)] | Select-Object -expand uri) -join ","
+	if ($TopTracks.Length -lt $N)
+	{
+		return ($TopTracks | Select-Object -expand uri) -join ","
+	}
+
+	return ($TopTracks[0..$($N-1)] | Select-Object -expand uri) -join ","
 }
 
 function Add-TracksToPlaylist($TrackUris)
@@ -153,12 +160,12 @@ function Add-TracksToPlaylist($TrackUris)
 	# $PlaylistId = "4wPXJkwA3tcDv7ovgOoXcY" # AUSTIN
 	$PlaylistId = "7pCFHK5QN7JpNnZeWHUVpw" #Dublin
 
-	$url = "https://api.spotify.com/v1/playlists/{0}/tracks?uris={1}" -f $PlaylistId, $TrackUris
+	$url = "{0}/playlists/{1}/tracks?uris={2}" -f $SpotifyApiUri, $PlaylistId, $TrackUris
 
 	return Invoke-SpotifyRequest 'Post' $url
 }
 
-$SpotifyKey = ""
+$SpotifyKey = "Authorization: Bearer REPLACE_ME"
 $upcomingConcerts = Get-UpcomingAustinConcerts
 $previouslyAddedArtists = @();
 
@@ -179,7 +186,7 @@ foreach($concert in $upcomingConcerts) {
 
 			if ($TopTracks.tracks.Length -ne 0)
 			{
-				$TopTracksUris = Get-TopNTrackUris $TopTracks 3
+				$TopTracksUris = Get-TopNTrackUris $TopTracks 3 $false
 				Add-TracksToPlaylist $TopTracksUris
 			}
 			else
