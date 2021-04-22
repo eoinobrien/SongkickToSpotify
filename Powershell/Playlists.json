@@ -1,0 +1,26 @@
+[
+  {
+    "PlaylistId": "7pCFHK5QN7JpNnZeWHUVpw",
+    "PlaylistTitle": "Upcoming Dublin",
+    "Area": "Dublin",
+    "MetroId": "29314",
+    "PhotoCredit": "Photo by Majestic Lukas on Unsplash",
+    "Offset": 14
+  },
+  {
+    "PlaylistId": "5qT5lh3wezIsTGPj4RrygK",
+    "PlaylistTitle": "Upcoming Toronto",
+    "Area": "Toronto",
+    "MetroId": "27396",
+    "PhotoCredit": "Photo by Fran on Unsplash",
+    "Offset": 14
+  },
+  {
+    "PlaylistId": "5DAmJi0L4a2OUfqKNOcWu7",
+    "PlaylistTitle": "Upcoming New York",
+    "Area": "New York",
+    "MetroId": "7644",
+    "PhotoCredit": "Photo by Emiliano Bar on Unsplash",
+    "Offset": 14
+  }
+]
