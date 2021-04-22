@@ -4,7 +4,7 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 	{
 		$result = Invoke-WebRequest -Method $Method -Uri $Uri -Headers $headers -Body $Body
 	}
-	catch [System.Net.WebException]
+	catch
 	{
 		if ($_.Exception.Response.StatusCode -eq 429)
 		{
@@ -28,10 +28,6 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 			Write-Error "ERROR: $(Get-ErrorFromResponseBody $_ | Format-Table | Out-String)"
 		}
 	}
-	catch
-	{
-		Write-Error "Error when invoking method. Unknown Error."
-	}
 
 	return $($result.Content | ConvertFrom-Json)
 }
@@ -51,7 +47,7 @@ function Get-ErrorFromResponseBody($Error)
 			{
 				$ResponseBody = $ResponseBody | ConvertFrom-Json
 
-                $ResponseBody = "Status: $($ResponseBody.error.status); Message: $($ResponseBody.error.message)"
+				$ResponseBody = "Status: $($ResponseBody.error.status); Message: $($ResponseBody.error.message)"
 			}
 
 			return $ResponseBody

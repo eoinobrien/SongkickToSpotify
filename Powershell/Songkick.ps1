@@ -1,12 +1,8 @@
-function Get-UpcomingAustinConcerts()
+function Get-UpcomingConcerts($MetroId, $StartDate, $EndDate)
 {
-	$SongkickApiKey = "REPLACE_ME"
-	# Limit of 50 per page
-	# $MetroId = "9179" # AUSTIN
-	$MetroId = "29314" # Dublin
-	$AustinSongkick = "https://api.songkick.com/api/3.0/metro_areas/$MetroId/calendar.json?apikey=$SongkickApiKey&min_date=2019-08-10&max_date=2019-08-31"
+	$MetroCalendar = "https://api.songkick.com/api/3.0/metro_areas/$MetroId/calendar.json?apikey=$SongkickApiKey&min_date=$StartDate&max_date=$EndDate"
 
-	$Concerts = Get-PagedUpcomingConcertResults $AustinSongkick
+	$Concerts = Get-PagedUpcomingConcertResults $MetroCalendar
 
 	return $Concerts
 }
