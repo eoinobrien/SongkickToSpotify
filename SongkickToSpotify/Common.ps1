@@ -26,6 +26,8 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 		else
 		{
 			Write-Error "ERROR: $(Get-ErrorFromResponseBody $_ | Format-Table | Out-String)"
+			Write-Error "Exiting"
+			exit
 		}
 	}
 

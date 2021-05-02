@@ -58,7 +58,7 @@ function Get-TopNTrackUris($TopTracks, $N, $AllowExplict) {
 	$TopTracks = $TopTracks.tracks
 
 	if (-not $AllowExplict) {
-		$TopTracks = $TopTracks | where explicit -eq $false
+		$TopTracks = $TopTracks | Where-Object explicit -eq $false
 	}
 
 	if ($null -eq $TopTracks) {
@@ -78,7 +78,7 @@ function Add-TracksToPlaylist($PlaylistId, $TrackUris) {
 	return Invoke-SpotifyRequest 'Post' $url
 }
 
-function Change-PlaylistDetails($PlaylistId, $Name, $Description, $Public = $false) {
+function Set-PlaylistDetails($PlaylistId, $Name, $Description, $Public = $false) {
 	$url = "{0}/playlists/{1}" -f $SpotifyApiUri, $PlaylistId
 
 	$body = @{
@@ -106,7 +106,7 @@ function Convert-ToDeletableTrackArray($Items) {
 	return $deletableTracks
 }
 
-function Delete-TracksFromPlaylist($PlaylistId, $Tracks) {
+function Remove-TracksFromPlaylist($PlaylistId, $Tracks) {
 	$url = "{0}/playlists/{1}/tracks" -f $SpotifyApiUri, $PlaylistId
 	
 	$body = @{
@@ -116,12 +116,12 @@ function Delete-TracksFromPlaylist($PlaylistId, $Tracks) {
 	return Invoke-SpotifyRequest 'Delete' $url (ConvertTo-Json -InputObject $body)
 }
 
-function Delete-AllPlaylistTracks($PlaylistId) {
+function Remove-AllPlaylistTracks($PlaylistId) {
 	$playlistItems = Convert-ToDeletableTrackArray (Get-AllPlaylistTracks $PlaylistId)
 
 	for ($i = 0; $i -lt $playlistItems.Length; $i += 99) {
 		$limit = $i + 99 -gt $playlistItems.Length ? $playlistItems.Length - 1 : $i + 99
 		$deletableTrackArray = ($playlistItems[$i..$limit])
-		Delete-TracksFromPlaylist $PlaylistId $deletableTrackArray
+		Remove-TracksFromPlaylist $PlaylistId $deletableTrackArray
 	}
 }

@@ -1,22 +1,23 @@
 Set-StrictMode -version latest;
 
-. .\Common.ps1
-. .\Songkick.ps1
-. .\Spotify.ps1
+. $PSScriptRoot\Common.ps1
+. $PSScriptRoot\Songkick.ps1
+. $PSScriptRoot\Spotify.ps1
+. $PSScriptRoot\SpotifyAuth.ps1
 
-$SongkickAPIKey = "wk8Wn7sa4eq8L7WC"
-$SpotifyKey = "Bearer BQD4py2m7pbC-Z4NQi1-Xezjo21vMLwECEX84vU707nCZykNeHTqfURfYw3RhVYwwc_u0mrM3O6Y7V_GFQWweGUzaIEfCxldso2H5mHM0J2TpyT2QGKPQC6tz70_YelH4zdg-tT-dWr3pdX3kMWDnUFy2xtGXgsoEwfn6zQzYI5wnMhXmwkxUK0nluaWhq0VBC5uUXQbDnEmwQdUhzyXlMO7hNlBidvw0_WegxIZik5OQfjiOb3qkOwUdP4du82D6_Ty6TQ8v3oyVsOra2QepS9B"
-
-function Load-PlaylistCountries() {
-	$playlists = Get-Content '.\Playlists.json' | Out-String | ConvertFrom-Json
+$SongkickAPIKey = $env:SONGKICK_API_KEY
+$SpotifyKey = "Bearer $(Refresh-AuthToken)"
+function Update-PlaylistsFromJson() {
+	$playlists = Get-Content '.\SongkickToSpotify\Playlists.json' | Out-String | ConvertFrom-Json
 
 	foreach ($playlist in $playlists) {
-		Update-MetroPlaylist $playlist
+		if ($null -ne $playlist.PlaylistId) {
+			Update-MetroPlaylist $playlist
+		}
 	}
 }
 
-function Create-PlaylistDescription($Area, $Offset, $PhotoCredit)
-{
+function Set-PlaylistDescription($Area, $Offset, $PhotoCredit) {
 	$dayWeekString = ($Offset % 7) -eq 0 ? "{0} weeks" -f ($Offset / 7) : "{0} days" -f $Offset
 
 	return "Top tracks of artists who are performing in {0} in the next {1}. {2}" -f $Area, $dayWeekString, $PhotoCredit
@@ -36,7 +37,7 @@ function Update-MetroPlaylist($Playlist) {
 	Write-Host "========================================="
 	$upcomingConcerts = Get-UpcomingConcerts $metroId $startDate $endDate
 
-	Delete-AllPlaylistTracks $playlistId
+	Remove-AllPlaylistTracks $playlistId
 
 	$previouslyAddedArtists = @();
 
@@ -45,7 +46,6 @@ function Update-MetroPlaylist($Playlist) {
 			if ($previouslyAddedArtists.Contains($performance.displayName)) {
 				continue;
 			}
-			
 
 			$spotifyArtist = Get-SpotifyArtist $performance.displayName
 
@@ -74,8 +74,6 @@ function Update-MetroPlaylist($Playlist) {
 		}
 	}
 
-	$playlistDescription = Create-PlaylistDescription $Playlist.Area $Playlist.Offset $Playlist.PhotoCredit
-	Change-PlaylistDetails $playlistId $Playlist.PlaylistTitle $playlistDescription $true
+	$playlistDescription = Set-PlaylistDescription $Playlist.Area $Playlist.Offset $Playlist.PhotoCredit
+	Set-PlaylistDetails $playlistId $Playlist.PlaylistTitle $playlistDescription $true
 }
-
-Load-PlaylistCountries
