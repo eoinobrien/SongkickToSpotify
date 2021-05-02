@@ -1,10 +1,8 @@
-. $PSScriptRoot\SongkickToSpotify.ps1
-
-# Input bindings are passed in via param block.
 param($Timer)
 
-# Write an information log with the current time.
-Write-Host "Running Songkick to Spotify"
+. $PSScriptRoot\SongkickToSpotify.ps1
+
+Write-Host "Running Songkick to Spotify. $($Timer)"
 
 Update-PlaylistsFromJson
 
