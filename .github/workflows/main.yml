@@ -1,7 +1,9 @@
 name: Deploy Azure Function
 
 on:
-  [push]
+  push:
+    branches:
+      - main
 
 env:
   AZURE_FUNCTIONAPP_NAME: upcoming-spotify  # set this to your application's name
