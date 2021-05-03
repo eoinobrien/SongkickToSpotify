@@ -108,7 +108,7 @@ function Convert-ToDeletableTrackArray($Items) {
 
 function Remove-TracksFromPlaylist($PlaylistId, $Tracks) {
 	$url = "{0}/playlists/{1}/tracks" -f $SpotifyApiUri, $PlaylistId
-	
+
 	$body = @{
 		"tracks" = $Tracks
 	}
@@ -124,4 +124,14 @@ function Remove-AllPlaylistTracks($PlaylistId) {
 		$deletableTrackArray = ($playlistItems[$i..$limit])
 		Remove-TracksFromPlaylist $PlaylistId $deletableTrackArray
 	}
+}
+
+function New-Playlist($Name) {
+	$url = "{0}/users/{1}/playlists" -f $SpotifyApiUri, "1155679421"
+
+	$body = @{
+		"name" = $Name
+	}
+
+	return Invoke-SpotifyRequest 'Post' $url (ConvertTo-Json -InputObject $body)
 }

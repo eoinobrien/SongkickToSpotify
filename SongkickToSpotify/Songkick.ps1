@@ -25,3 +25,12 @@ function Get-PagedUpcomingConcertResults($Uri)
 
 	return $concerts
 }
+
+function Search-Locations($Query)
+{
+	$RequestUri = "https://api.songkick.com/api/3.0/search/locations.json?apikey=$SongkickAPIKey&query=$Query"
+
+	$locations = Invoke-PostRestMethodAndHandleExceptions 'Get' $RequestUri
+
+	return $locations.resultsPage.results.location
+}
