@@ -18,7 +18,23 @@ function Update-PlaylistsFromJson() {
 }
 
 function Set-PlaylistDescription($Area, $Offset, $PhotoCredit) {
-	$dayWeekString = ($Offset % 7) -eq 0 ? "{0} weeks" -f ($Offset / 7) : "{0} days" -f $Offset
+	switch ($Offset) {
+		{ $Offset -eq 7 } {
+			$dayWeekString = "week"
+			continue
+		}
+		{ $Offset -eq 1 } {
+			$dayWeekString = "day"
+			continue
+		}
+		{ ($Offset % 7) -eq 0 } {
+			$dayWeekString = "{0} weeks" -f ($Offset / 7)
+			continue
+		}
+		Default {
+			$dayWeekString = "{0} days" -f $Offset
+		}
+	}
 
 	return "Top tracks of artists who are performing in {0} in the next {1}. {2}" -f $Area, $dayWeekString, $PhotoCredit
 }
