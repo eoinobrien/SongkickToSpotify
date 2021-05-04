@@ -3,3 +3,5 @@
 . "$(dirname "$0")/common.sh"
 
 yarn lint-staged
+
+cp -f SongkickToSpotify/Playlists.json  site/src/pages/Playlists.json
