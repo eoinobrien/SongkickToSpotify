@@ -10,11 +10,16 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'BebasNeue', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "BebasNeue", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 @font-face {
-  font-family: 'BebasNeue';
-  src: url('./fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-family: "BebasNeue";
+  src: local("BebasNeue-Regular"), url("fonts/BebasNeue-Regular.ttf") format("truetype");
 }

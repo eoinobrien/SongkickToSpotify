@@ -11,12 +11,21 @@ export default function Home({ playlists }: IndexPageProps) {
       <Head>
         <title>Playlists for Upcoming Concerts</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/fonts/BebasNeue-Regular.ttf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>Upcoming</h1>
 
-        <p  className={styles.description}>Each playlist contains the top songs for artists who are performing in that city in the coming period. Playlists are updated daily.</p>
+        <p className={styles.description}>
+          Each playlist contains the top songs for artists who are performing in
+          that city in the coming period. Playlists are updated daily.
+        </p>
 
         <Playlists playlists={playlists} />
       </main>
