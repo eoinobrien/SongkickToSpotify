@@ -2,8 +2,10 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
 import { Playlists } from '../components/Playlists';
+import { GetStaticProps } from 'next';
+import { PlaylistType } from '@/components/Playlist';
 
-export default function Home() {
+export default function Home({playlists}: IndexPageProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +18,7 @@ export default function Home() {
           Upcoming <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <Playlists />
+        <Playlists playlists={playlists}/>
       </main>
 
       <footer className={styles.footer}>
@@ -31,3 +33,17 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const playlists = require('./Playlists.json');
+
+  return {
+    props: {
+      playlists: playlists,
+    },
+  };
+};
+
+export type IndexPageProps = {
+  playlists: PlaylistType[];
+};

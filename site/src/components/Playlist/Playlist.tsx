@@ -1,4 +1,4 @@
-import { PlaylistComponentProps } from './Playlist.types';
+import { PlaylistComponentProps } from '.';
 import styles from './Playlist.module.css';
 
 export const Playlist: React.FC<PlaylistComponentProps> = (

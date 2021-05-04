@@ -1,16 +1,12 @@
-import * as playlists from './Playlists.json';
-import { Playlist } from '../Playlist';
+import { PlaylistsComponentProps } from '.';
+import { Playlist, PlaylistType } from '../Playlist';
 import styles from './Playlists.module.css';
 
-export const Playlists: React.FC = () => {
+export const Playlists: React.FC<PlaylistsComponentProps> = (props: PlaylistsComponentProps) => {
   return (
     <div className={styles.playlists}>
-      {playlists.map((p) => {
-        return (
-          <>
-            <Playlist playlist={p} />
-          </>
-        );
+      {props.playlists.map((p: PlaylistType) => {
+        return <Playlist playlist={p} key={p.PlaylistId} />;
       })}
     </div>
   );
