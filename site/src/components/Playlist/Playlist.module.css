@@ -1,10 +1,41 @@
-.coverArt {
-  width: 200px;
-}
-
 .playlist {
   display: flex;
   flex-direction: column;
 
   margin: 1rem;
+  line-height: 1.5;
+
+  padding: 1rem;
+  border-radius: 0.2rem;
+  border: SpringGreen 0.2rem solid;
+}
+
+.playlist a {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist a:hover {
+  opacity: 0.75 !important;
+}
+
+.coverArt {
+  width: 200px;
+}
+
+.spotify {
+  text-decoration: none;
+}
+
+.spotifyButton {
+  margin-top: 0.1rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-family: 'BebasNeue', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: SpringGreen;
+  color: black;
+}
+
+.songkick {
+  color: black;
 }

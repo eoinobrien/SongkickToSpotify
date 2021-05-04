@@ -1,5 +1,9 @@
 .container {
   min-height: 100vh;
+  max-width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -23,16 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.footer img {
-  margin-left: 0.5rem;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .title a {
@@ -50,11 +45,6 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
 }
 
 .description {
