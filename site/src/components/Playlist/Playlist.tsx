@@ -14,7 +14,7 @@ export const Playlist: React.FC<PlaylistComponentProps> = (
       >
         <Image
           src={'/cover-art/' + props.playlist.PlaylistTitle + '.jpg'}
-          alt={'Playlist cover art for ' + props.playlist.PlaylistTitle + '.'}
+          alt={props.playlist.PlaylistTitle}
           width={200}
           height={200}
           className={styles.coverArt}
