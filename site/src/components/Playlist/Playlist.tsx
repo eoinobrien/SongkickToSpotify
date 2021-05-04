@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { PlaylistComponentProps } from '.';
 import styles from './Playlist.module.css';
 
@@ -6,8 +7,11 @@ export const Playlist: React.FC<PlaylistComponentProps> = (
 ) => {
   return (
     <div className={styles.playlist}>
-      <img
-        src={'cover-art/' + props.playlist.PlaylistTitle + '.jpg'}
+      <Image
+        src={'/cover-art/' + props.playlist.PlaylistTitle + '.jpg'}
+        alt={'Playlist cover art for ' + props.playlist.PlaylistTitle + '.'}
+        width={200}
+        height={200}
         className={styles.coverArt}
       />
       <a
