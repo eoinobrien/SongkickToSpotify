@@ -32,18 +32,20 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@main
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
       - name: "Yarn Install"
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
+        run: yarn install
+
       - name: "Next Build"
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build
+        run: yarn build
+
       - name: "Next Export"
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: export
+        run: yarn export
+
       - name: Deploy Site to gh-pages
         uses: s0/git-publish-subdir-action@develop
         env:
