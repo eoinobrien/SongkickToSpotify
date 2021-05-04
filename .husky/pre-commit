@@ -3,5 +3,6 @@
 . "$(dirname "$0")/common.sh"
 
 cp -f "./SongkickToSpotify/Playlists.json" "./site/src/pages/Playlists.json"
+git add "./site/src/pages/Playlists.json"
 
 cd site && yarn lint-staged
