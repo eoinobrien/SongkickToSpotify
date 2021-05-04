@@ -36,7 +36,7 @@ function Set-PlaylistDescription($Area, $Offset, $PhotoCredit) {
 		}
 	}
 
-	return "Top tracks of artists who are performing in {0} in the next {1}. {2}" -f $Area, $dayWeekString, $PhotoCredit
+	return "Top tracks of artists who are performing in {0} in the next {1}. Concerts data from Songkick. {2}" -f $Area, $dayWeekString, $PhotoCredit
 }
 
 function Update-MetroPlaylist($Playlist) {
