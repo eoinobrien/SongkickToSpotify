@@ -10,13 +10,6 @@ export default function Home({ playlists }: IndexPageProps) {
     <div className={styles.container}>
       <Head>
         <title>Playlists for Upcoming Concerts</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="preload"
-          href="/fonts/BebasNeue-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        />
       </Head>
 
       <main className={styles.main}>
