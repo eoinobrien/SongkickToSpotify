@@ -1,10 +1,10 @@
 export type PlaylistComponentProps = PlaylistProps;
 
 export type PlaylistProps = {
-  playlist: PlaylistType;
+  playlist: PlaylistCity;
 };
 
-export type PlaylistType = {
+export type PlaylistCity = {
   PlaylistId: string;
   Offset: number;
   PlaylistTitle: string;

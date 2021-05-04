@@ -1,9 +1,10 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import { PlaylistCity } from '@/components/Playlist';
+import { FilterablePlaylists } from '../components/FilterablePlaylists';
 import styles from '../styles/Home.module.css';
 
-import { Playlists } from '../components/Playlists';
-import { GetStaticProps } from 'next';
-import { PlaylistType } from '@/components/Playlist';
+const playlistsJson = require(`./Playlists.json`);
 
 export default function Home({ playlists }: IndexPageProps) {
   return (
@@ -20,13 +21,13 @@ export default function Home({ playlists }: IndexPageProps) {
           that city in the coming period. Playlists are updated daily.
         </p>
 
-        <Playlists playlists={playlists} />
+        <FilterablePlaylists playlists={playlists} />
       </main>
 
       <footer className={styles.footer}>
         <div>
           <p>
-            Playlists are updated daily using Concert data from{' '}
+            Playlists are updated daily using Concert data from{` `}
             <a href="https://www.songkick.com">Songkick</a>.
           </p>
         </div>
@@ -36,7 +37,7 @@ export default function Home({ playlists }: IndexPageProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Created by Eoin O'Brien
+            Created by Eoin O&apos;Brien
           </a>
         </div>
       </footer>
@@ -44,16 +45,12 @@ export default function Home({ playlists }: IndexPageProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const playlists = require('./Playlists.json');
-
-  return {
-    props: {
-      playlists: playlists,
-    },
-  };
-};
+export const getStaticProps: GetStaticProps = async () => ({
+  props: {
+    playlists: playlistsJson,
+  },
+});
 
 export type IndexPageProps = {
-  playlists: PlaylistType[];
+  playlists: PlaylistCity[];
 };

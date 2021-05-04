@@ -1,0 +1,21 @@
+.searchContainer {
+  width: 100%;
+  display: flex;
+}
+
+.search {
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-bottom: grey 0.2rem solid;
+}
+
+.search:focus {
+  border-bottom-color: SpringGreen;
+}
+
+.resetButton {
+  background: none;
+  border: none;
+}
