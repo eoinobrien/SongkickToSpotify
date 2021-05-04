@@ -16,10 +16,36 @@ jobs:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
 
-    - name: 'Run Azure Functions Action'
+    - name: 'Deploy Azure Functions Action'
       uses: Azure/functions-action@v1
       id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+  
+  next-js:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps: 
+    - name: 'Yarn Install'
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install 
+    - name: 'Next Build'
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: build
+    - name: 'Next Export'
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: export
+    - name: Deploy Site to gh-pages
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: gh-pages
+        FOLDER: site/out
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
