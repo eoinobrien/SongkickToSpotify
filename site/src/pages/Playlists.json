@@ -132,15 +132,39 @@
     "Offset": 14,
     "PlaylistTitle": "Upcoming Paris",
     "MetroId": 28909,
-    "PhotoCredit": "Photo by Chris Karidis on Unsplash ",
+    "PhotoCredit": "Photo by Chris Karidis on Unsplash",
     "Area": "Paris"
   },
   {
     "PlaylistId": "5kDluHsazzNHWycEQO9Cf4",
     "Offset": 14,
     "PlaylistTitle": "Upcoming New Orleans",
-    "MetroId": 11772,
-    "PhotoCredit": "REPLACE_ME",
+    "MetroId": 29313,
+    "PhotoCredit": "Photo by Rosie Kerr on Unsplash",
     "Area": "New Orleans"
+  },
+  {
+    "PlaylistId": "2usxLVXyIT379KsTjL2PtA",
+    "Offset": 14,
+    "PlaylistTitle": "Upcoming Cork",
+    "MetroId": 11772,
+    "PhotoCredit": "Photo by William Murphy on Flickr",
+    "Area": "Cork"
+  },
+  {
+    "PlaylistId": "539vQULZxJdzOeJ5q6stib",
+    "Offset": 14,
+    "PlaylistTitle": "Upcoming Limerick",
+    "MetroId": 29316,
+    "PhotoCredit": "Photo by William Murphy on Flickr",
+    "Area": "Limerick"
+  },
+  {
+    "PlaylistId": "539vQULZxJdzOeJ5q6stib",
+    "Offset": 14,
+    "PlaylistTitle": "Upcoming Galway",
+    "MetroId": 29315,
+    "PhotoCredit": "Photo by Conor Luddy on Unsplash",
+    "Area": "Galway"
   }
 ]
