@@ -20,7 +20,7 @@ function Update-PlaylistsFromJson() {
 function Set-PlaylistDescription($Area, $Offset, $PhotoCredit) {
 	switch ($Offset) {
 		{ $Offset -eq 7 } {
-			$dayWeekString = "in the next week"
+			$dayWeekString = "this week"
 			continue
 		}
 		{ $Offset -eq 1 } {
