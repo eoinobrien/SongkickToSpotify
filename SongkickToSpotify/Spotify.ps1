@@ -103,7 +103,7 @@ function Convert-ToDeletableTrackArray($Items) {
 		$deletableTracks += @{"uri" = $item.track.uri }
 	}
 
-	return $deletableTracks
+	return ,$deletableTracks
 }
 
 function Remove-TracksFromPlaylist($PlaylistId, $Tracks) {
@@ -119,8 +119,8 @@ function Remove-TracksFromPlaylist($PlaylistId, $Tracks) {
 function Remove-AllPlaylistTracks($PlaylistId) {
 	$playlistItems = Convert-ToDeletableTrackArray (Get-AllPlaylistTracks $PlaylistId)
 
-	for ($i = 0; $i -lt $playlistItems.Length; $i += 99) {
-		$limit = $i + 99 -gt $playlistItems.Length ? $playlistItems.Length - 1 : $i + 99
+	for ($i = 0; $i -lt $playlistItems.Count; $i += 99) {
+		$limit = ($i + 99) -ge $playlistItems.Count ? $playlistItems.Count - 1 : $i + 99
 		$deletableTrackArray = ($playlistItems[$i..$limit])
 		Remove-TracksFromPlaylist $PlaylistId $deletableTrackArray
 	}

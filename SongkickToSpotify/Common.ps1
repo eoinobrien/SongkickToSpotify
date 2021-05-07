@@ -34,11 +34,11 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 	return $($result.Content | ConvertFrom-Json)
 }
 
-function Get-ErrorFromResponseBody($Error)
+function Get-ErrorFromResponseBody($ResponseError)
 {
 	if ($PSVersionTable.PSVersion.Major -lt 6)
 	{
-		if ($Error.Exception.Response)
+		if ($ResponseError.Exception.Response)
 		{
 			$Reader = New-Object System.IO.StreamReader($Error.Exception.Response.GetResponseStream())
 			$Reader.BaseStream.Position = 0
