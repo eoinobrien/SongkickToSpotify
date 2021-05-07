@@ -4,8 +4,14 @@ export type PlaylistProps = {
   playlist: PlaylistCity;
 };
 
+export enum PlaylistType {
+  Upcoming = `Upcoming`,
+  Tonight = `Tonight`,
+}
+
 export type PlaylistCity = {
   PlaylistId: string;
+  PlaylistType: PlaylistType;
   Offset: number;
   PlaylistTitle: string;
   Area: string;

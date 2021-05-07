@@ -20,23 +20,33 @@ function Update-PlaylistsFromJson() {
 function Set-PlaylistDescription($Area, $Offset, $PhotoCredit) {
 	switch ($Offset) {
 		{ $Offset -eq 7 } {
-			$dayWeekString = "week"
+			$dayWeekString = "in the next week"
 			continue
 		}
 		{ $Offset -eq 1 } {
-			$dayWeekString = "day"
+			$dayWeekString = "tonight"
 			continue
 		}
 		{ ($Offset % 7) -eq 0 } {
-			$dayWeekString = "{0} weeks" -f ($Offset / 7)
+			$dayWeekString = "in the next {0} weeks" -f ($Offset / 7)
 			continue
 		}
 		Default {
-			$dayWeekString = "{0} days" -f $Offset
+			$dayWeekString = "in the next {0} days" -f $Offset
 		}
 	}
 
-	return "Top tracks of artists who are performing in {0} in the next {1}. Concert data from Songkick. {2}" -f $Area, $dayWeekString, $PhotoCredit
+	return "Top tracks of artists who are performing in {0} {1}. Concert data from Songkick. {2}" -f $Area, $dayWeekString, $PhotoCredit
+}
+
+function Get-PlaylistName($Type, $Area)
+{
+	if ($Type -eq "Tonight")
+	{
+		return "Tonight in " + $Area
+	}
+
+	return $Type + " " + $Area
 }
 
 function Update-MetroPlaylist($Playlist) {
@@ -91,5 +101,5 @@ function Update-MetroPlaylist($Playlist) {
 	}
 
 	$playlistDescription = Set-PlaylistDescription $Playlist.Area $Playlist.Offset $Playlist.PhotoCredit
-	Set-PlaylistDetails $playlistId $Playlist.PlaylistTitle $playlistDescription $true
+	Set-PlaylistDetails $playlistId $(Get-PlaylistName $Playlist.PlaylistType $Playlist.Area) $playlistDescription $true
 }

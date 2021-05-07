@@ -1,6 +1,7 @@
 [
   {
     "PlaylistId": "7pCFHK5QN7JpNnZeWHUVpw",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Dublin",
     "Area": "Dublin",
@@ -9,6 +10,7 @@
   },
   {
     "PlaylistId": "5qT5lh3wezIsTGPj4RrygK",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Toronto",
     "Area": "Toronto",
@@ -17,6 +19,7 @@
   },
   {
     "PlaylistId": "5DAmJi0L4a2OUfqKNOcWu7",
+    "PlaylistType" : "Upcoming",
     "Offset": 7,
     "PlaylistTitle": "Upcoming New York",
     "Area": "New York",
@@ -25,6 +28,7 @@
   },
   {
     "PlaylistId": "2uDlQhGQrMV2GkvIvOQssB",
+    "PlaylistType" : "Upcoming",
     "Offset": 7,
     "PlaylistTitle": "Upcoming London",
     "Area": "London",
@@ -33,6 +37,7 @@
   },
   {
     "PlaylistId": "72Hp4aqo1BwEBKog8t9OS7",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Milan",
     "MetroId": 30338,
@@ -41,6 +46,7 @@
   },
   {
     "PlaylistId": "7d24xUSSvp7P3eDRryA2c6",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Vienna",
     "MetroId": 1409,
@@ -49,6 +55,7 @@
   },
   {
     "PlaylistId": "534eB7YGAU2VWK5bqkIyYw",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Memphis",
     "MetroId": 22600,
@@ -57,6 +64,7 @@
   },
   {
     "PlaylistId": "7erhC5cXtTwDmLt4zzTP76",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Leipzig",
     "MetroId": 28528,
@@ -65,6 +73,7 @@
   },
   {
     "PlaylistId": "5l1DI2hdwP4miNzO0dZFEh",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Havana",
     "MetroId": 9776,
@@ -73,6 +82,7 @@
   },
   {
     "PlaylistId": "3Ln5TOedYNlw7XF1v5oj8s",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Bologna",
     "MetroId": 30285,
@@ -81,6 +91,7 @@
   },
   {
     "PlaylistId": "7lHQN9JL1N0TmE8mZ4NAdj",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Sydney",
     "MetroId": 26794,
@@ -89,6 +100,7 @@
   },
   {
     "PlaylistId": "1HeRYWMePnHWKvXsEoGspF",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Rio de Janeiro",
     "MetroId": 27232,
@@ -97,6 +109,7 @@
   },
   {
     "PlaylistId": "6DbkGyL70rzqfIuGsIG508",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Nashville",
     "MetroId": 11104,
@@ -105,6 +118,7 @@
   },
   {
     "PlaylistId": "1b19AGBmMBvNz5VlqOYKz0",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Berlin",
     "MetroId": 28443,
@@ -113,6 +127,7 @@
   },
   {
     "PlaylistId": "5EeL8e4RnTrXL7bp88dZFw",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Prague",
     "MetroId": 28425,
@@ -121,6 +136,7 @@
   },
   {
     "PlaylistId": "2CxWdT6aVYigtys2hlYzGh",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Austin",
     "MetroId": 9179,
@@ -129,6 +145,7 @@
   },
   {
     "PlaylistId": "2eCYe86cGVoaaWAzQuYLXF",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Paris",
     "MetroId": 28909,
@@ -137,6 +154,7 @@
   },
   {
     "PlaylistId": "5kDluHsazzNHWycEQO9Cf4",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming New Orleans",
     "MetroId": 11772,
@@ -145,6 +163,7 @@
   },
   {
     "PlaylistId": "2usxLVXyIT379KsTjL2PtA",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Cork",
     "MetroId": 29313,
@@ -153,6 +172,7 @@
   },
   {
     "PlaylistId": "539vQULZxJdzOeJ5q6stib",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Limerick",
     "MetroId": 29316,
@@ -161,10 +181,29 @@
   },
   {
     "PlaylistId": "0Y73jxSo0GEcICsysw9weP",
+    "PlaylistType" : "Upcoming",
     "Offset": 14,
     "PlaylistTitle": "Upcoming Galway",
     "MetroId": 29315,
     "PhotoCredit": "Photo by Conor Luddy on Unsplash",
     "Area": "Galway"
+  },
+  {
+    "PlaylistId": "36XSvai9gmw7uxo4rYFKEt",
+    "PlaylistType" : "Upcoming",
+    "Offset": 14,
+    "PlaylistTitle": "Upcoming Cambridge, UK",
+    "MetroId": 24571,
+    "PhotoCredit": "REPLACE",
+    "Area": "Cambridge, UK"
+  },
+  {
+    "PlaylistId": "2TZwU4ScBzRFbZYbwNaWCq",
+    "PlaylistType" : "Tonight",
+    "Offset": 1,
+    "PlaylistTitle": "Tonight in Dublin",
+    "MetroId": 29314,
+    "PhotoCredit": "REPLACE",
+    "Area": "Dublin"
   }
 ]
