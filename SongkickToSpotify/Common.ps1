@@ -10,13 +10,13 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 		{
 			Write-Host "Spotify Rate Limit hit. Pausing."
 
-			if($null -eq $_.Exception.Response.Headers["Retry-After"])
+			if($null -eq $_.Exception.Response.Headers.RetryAfter)
 			{
 				$waitForSeconds = 10;
 			}
 			else
 			{
-				$waitForSeconds = $_.Exception.Response.Headers["Retry-After"]
+				$waitForSeconds = $_.Exception.Response.Headers.RetryAfter.Delta.Seconds + 1;
 			}
 
 			Start-Sleep -s $waitForSeconds
