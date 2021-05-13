@@ -1,14 +1,11 @@
 Set-StrictMode -version latest;
 
-. $PSScriptRoot\Common.ps1
-. $PSScriptRoot\Songkick.ps1
-. $PSScriptRoot\Spotify.ps1
-. $PSScriptRoot\SpotifyAuth.ps1
+Import-Module $PSScriptRoot\Modules\Songkick
+Import-Module $PSScriptRoot\Modules\Spotify.psm1
+Import-Module $PSScriptRoot\Modules\Common.psm1
 
-$SongkickAPIKey = $env:SONGKICK_API_KEY
-$SpotifyKey = "Bearer $(Refresh-AuthToken)"
 function Update-PlaylistsFromJson() {
-	$playlists = Get-Content '.\SongkickToSpotify\Playlists.json' | Out-String | ConvertFrom-Json
+	$playlists = Get-Content "$($PSScriptRoot)\Playlists.json" | Out-String | ConvertFrom-Json
 
 	foreach ($playlist in $playlists) {
 		if ($null -ne $playlist.PlaylistId) {

@@ -14,3 +14,5 @@ function Refresh-AuthToken() {
 
 	return $($result.Content | ConvertFrom-Json).access_token
 }
+
+Export-ModuleMember -Function Refresh-AuthToken

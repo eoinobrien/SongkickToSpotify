@@ -25,8 +25,8 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 		}
 		else
 		{
-			Write-Error "ERROR: $(Get-ErrorFromResponseBody $_ | Format-Table | Out-String)"
-			Write-Error "Exiting"
+			Write-Host "ERROR: $(Get-ErrorFromResponseBody $_ | Format-Table | Out-String)"
+			Write-Host "Exiting"
 			exit
 		}
 	}
@@ -60,3 +60,5 @@ function Get-ErrorFromResponseBody($ResponseError)
 		return $Error.ErrorDetails.Message
 	}
 }
+
+Export-ModuleMember -Function Invoke-PostRestMethodAndHandleExceptions

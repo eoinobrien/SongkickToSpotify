@@ -1,4 +1,7 @@
 
+Import-Module $PSScriptRoot\SpotifyAuth.psm1
+
+$SpotifyKey = "Bearer $(Refresh-AuthToken)"
 $SpotifyApiUri = "https://api.spotify.com/v1";
 
 function Invoke-SpotifyRequest($Method, $Uri, $Body) {
@@ -135,3 +138,11 @@ function New-Playlist($Name) {
 
 	return Invoke-SpotifyRequest 'Post' $url (ConvertTo-Json -InputObject $body)
 }
+
+Export-ModuleMember -Function Get-SpotifyArtist
+Export-ModuleMember -Function Get-ArtistTopTracks
+Export-ModuleMember -Function Get-TopNTrackUris
+Export-ModuleMember -Function Add-TracksToPlaylist
+Export-ModuleMember -Function Set-PlaylistDetails
+Export-ModuleMember -Function Remove-AllPlaylistTracks
+Export-ModuleMember -Function New-Playlist
