@@ -1,7 +1,3 @@
-
-Import-Module $PSScriptRoot\SpotifyAuth.psm1
-
-$SpotifyKey = "Bearer $(Refresh-AuthToken)"
 $SpotifyApiUri = "https://api.spotify.com/v1";
 
 function Invoke-SpotifyRequest($Method, $Uri, $Body) {
@@ -69,16 +65,30 @@ function Get-TopNTrackUris($TopTracks, $N, $AllowExplict) {
 	}
 
 	if (-not($TopTracks -is [array]) -or $TopTracks.Length -lt $N) {
-		return ($TopTracks | Select-Object -expand uri) -join ","
+		return ($TopTracks | Select-Object -expand uri)
 	}
 
-	return ($TopTracks[0..$($N - 1)] | Select-Object -expand uri) -join ","
+	return ($TopTracks[0..$($N - 1)] | Select-Object -expand uri)
+}
+
+function Add-OneHundredTracksToPlaylist($PlaylistId, $TrackUris) {
+	$url = "{0}/playlists/{1}/tracks" -f $SpotifyApiUri, $PlaylistId
+
+	$body = @{
+		"uris" = $TrackUris
+	}
+
+	return Invoke-SpotifyRequest 'Post' $url (ConvertTo-Json -InputObject $body)
 }
 
 function Add-TracksToPlaylist($PlaylistId, $TrackUris) {
-	$url = "{0}/playlists/{1}/tracks?uris={2}" -f $SpotifyApiUri, $PlaylistId, $TrackUris
+	for ($i = 0; $i -lt $TrackUris.Count; $i += 99) {
+		$limit = ($i + 99) -ge $TrackUris.Count ? $TrackUris.Count - 1 : $i + 99
+		$tracks = ($TrackUris[$i..$limit])
+		Write-Host "Add-TracksToPlaylist $($PlaylistId): $tracks"
 
-	return Invoke-SpotifyRequest 'Post' $url
+		Add-OneHundredTracksToPlaylist $PlaylistId $tracks
+	}
 }
 
 function Set-PlaylistDetails($PlaylistId, $Name, $Description, $Public = $false) {
@@ -106,7 +116,7 @@ function Convert-ToDeletableTrackArray($Items) {
 		$deletableTracks += @{"uri" = $item.track.uri }
 	}
 
-	return ,$deletableTracks
+	return , $deletableTracks
 }
 
 function Remove-TracksFromPlaylist($PlaylistId, $Tracks) {

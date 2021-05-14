@@ -8,7 +8,6 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 	{
 		if ($_.Exception.Response.StatusCode -eq 429)
 		{
-			Write-Host "Spotify Rate Limit hit. Pausing."
 
 			if($null -eq $_.Exception.Response.Headers.RetryAfter)
 			{
@@ -18,6 +17,8 @@ function Invoke-PostRestMethodAndHandleExceptions($Method, $Uri, $Body, $Headers
 			{
 				$waitForSeconds = $_.Exception.Response.Headers.RetryAfter.Delta.Seconds + 1;
 			}
+
+			Write-Host "Spotify Rate Limit hit. Pausing for $waitForSeconds seconds."
 
 			Start-Sleep -s $waitForSeconds
 
