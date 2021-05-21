@@ -6,7 +6,11 @@ export const Playlist: React.FC<PlaylistComponentProps> = ({
   playlist,
 }: PlaylistComponentProps) => {
   const imagePath = (playlistType: PlaylistType, area: string) => {
-    const path = `${playlistType}/${area}.jpg`.split(`,`).join(``);
+    const path = `${playlistType}/${area}.jpg`
+      .split(`,`)
+      .join(``)
+      .split(` `)
+      .join(``);
 
     try {
       // eslint-disable-next-line import/no-dynamic-require, global-require
@@ -50,6 +54,8 @@ export const Playlist: React.FC<PlaylistComponentProps> = ({
             )}`)}
             alt={playlist.PlaylistTitle}
             className={styles.coverArt}
+            width="200"
+            height="200"
           />
         </picture>
         <h2 className={styles.spotifyButton}>Play on Spotify</h2>
