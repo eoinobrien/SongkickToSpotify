@@ -26,6 +26,12 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
+          <script
+            async
+            defer
+            data-domain="eoinobrien.github.io/songkicktospotify"
+            src="https://plausible.eoin.co/js/plausible.js"
+          />
         </Head>
         <body>
           <Main />
