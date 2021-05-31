@@ -4,4 +4,5 @@ export type PlaylistsComponentProps = PlaylistsProps;
 
 export type PlaylistsProps = {
   playlists: PlaylistCity[];
+  source?: string;
 };

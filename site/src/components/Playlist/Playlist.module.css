@@ -7,7 +7,7 @@
 
   padding: 1rem;
   border-radius: 0.2rem;
-  border: SpringGreen 0.2rem solid;
+  border: var(--green) 0.2rem solid;
 }
 
 .playlist a:hover {
@@ -32,12 +32,16 @@
   margin-bottom: 0.5rem;
   width: 100%;
   padding: 0.5rem;
-  background-color: SpringGreen;
+  background-color: var(--green);
   color: black;
 }
 
+.cityBreezeSounds .spotifyButton {
+  background-color: pink;
+}
+
 .songkick {
-  color: black;
+  color: var(--font-color);
 }
 
 

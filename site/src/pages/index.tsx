@@ -15,11 +15,7 @@ export default function Home({ playlists }: IndexPageProps) {
     source?.toString().toLowerCase() === `citybreezesounds`;
 
   return (
-    <div
-      className={`${styles.container} ${
-        cityBreezeSounds && styles.cityBreezeSounds
-      }`}
-    >
+    <div className={styles.container}>
       <Head>
         <title>Playlists for Upcoming Concerts</title>
       </Head>
@@ -33,7 +29,10 @@ export default function Home({ playlists }: IndexPageProps) {
           that city in the coming period. Playlists are updated daily.
         </p>
 
-        <FilterablePlaylists playlists={playlists} />
+        <FilterablePlaylists
+          playlists={playlists}
+          source={source?.toString().toLowerCase()}
+        />
       </main>
 
       <footer className={styles.footer}>

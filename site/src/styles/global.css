@@ -1,9 +1,29 @@
+:root {
+  --background: white;
+  --font-color: black;
+  --green: SpringGreen;
+
+  --link-color: #1976d2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: black;
+    --font-color: white;
+
+    --link-color: #64b1ff;
+  }
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
+
+  background: var(--background);
+  color: var(--font-color);
 }
 
 * {
@@ -19,3 +39,6 @@ h6 {
   font-family: "BebasNeue", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+a {
+  color: var(--link-color);
+}

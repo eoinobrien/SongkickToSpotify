@@ -1,6 +1,7 @@
 .searchContainer {
   width: 100%;
   display: flex;
+  margin-bottom: 0.5rem;
 }
 
 .search {
@@ -9,13 +10,19 @@
   padding: 1rem;
   font-size: 1.5rem;
   border-bottom: grey 0.2rem solid;
+  background: var(--background);
+  color: var(--font-color);
 }
 
 .search:focus {
-  border-bottom-color: SpringGreen;
+  border-bottom-color: var(--green);
 }
 
 .resetButton {
   background: none;
   border: none;
+}
+
+.resetButton svg path{
+  fill: var(--font-color);
 }

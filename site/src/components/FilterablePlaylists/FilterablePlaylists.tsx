@@ -7,6 +7,7 @@ import styles from './FilterablePlaylists.module.css';
 
 export const FilterablePlaylists: React.FC<FilterablePlaylistsComponentProps> = ({
   playlists,
+  source,
 }: FilterablePlaylistsComponentProps) => {
   const [query, setQuery] = useState(``);
 
@@ -21,7 +22,7 @@ export const FilterablePlaylists: React.FC<FilterablePlaylistsComponentProps> = 
     <div className={styles.filterablePlaylists}>
       <Search value={query} onChange={onchange} onReset={() => setQuery(``)} />
 
-      <Playlists playlists={playlists.filter(filterFunction)} />
+      <Playlists playlists={playlists.filter(filterFunction)} source={source} />
     </div>
   );
 };

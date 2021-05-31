@@ -2,6 +2,7 @@ export type PlaylistComponentProps = PlaylistProps;
 
 export type PlaylistProps = {
   playlist: PlaylistCity;
+  source?: string;
 };
 
 export enum PlaylistType {

@@ -4,6 +4,7 @@ import { PlaylistType } from './Playlist.types';
 
 export const Playlist: React.FC<PlaylistComponentProps> = ({
   playlist,
+  source,
 }: PlaylistComponentProps) => {
   const imagePath = (playlistType: PlaylistType, area: string) => {
     const path = `${playlistType}/${area}.jpg`
@@ -22,7 +23,11 @@ export const Playlist: React.FC<PlaylistComponentProps> = ({
   };
 
   return (
-    <div className={styles.playlist}>
+    <div
+      className={`${styles.playlist} ${
+        source === `citybreezesounds` && styles.cityBreezeSounds
+      }`}
+    >
       <picture title={`${playlist.PlaylistTitle}`}>
         <source
           // eslint-disable-next-line import/no-dynamic-require, global-require

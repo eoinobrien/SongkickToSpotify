@@ -4,4 +4,5 @@ export type FilterablePlaylistsComponentProps = FilterablePlaylistsProps;
 
 export type FilterablePlaylistsProps = {
   playlists: PlaylistCity[];
+  source?: string;
 };
