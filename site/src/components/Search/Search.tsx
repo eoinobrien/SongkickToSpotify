@@ -14,7 +14,12 @@ export const Search: React.FC<SearchComponentProps> = ({
       placeholder="Search"
       className={styles.search}
     />
-    <button type="button" className={styles.resetButton} onClick={onReset}>
+    <button
+      type="button"
+      className={styles.resetButton}
+      onClick={onReset}
+      aria-label="Clear search box"
+    >
       <svg
         width="48"
         height="48"
