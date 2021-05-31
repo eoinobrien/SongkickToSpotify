@@ -15,7 +15,7 @@ export const FilterablePlaylists: React.FC<FilterablePlaylistsComponentProps> = 
   };
 
   const filterFunction = (city: PlaylistCity) =>
-    city.Area.toUpperCase().indexOf(query.toUpperCase()) > -1;
+    city.PlaylistTitle.toUpperCase().indexOf(query.toUpperCase()) > -1;
 
   return (
     <div className={styles.filterablePlaylists}>
