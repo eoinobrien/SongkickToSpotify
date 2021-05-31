@@ -1,0 +1,149 @@
+.duck {
+  position: relative;
+  width: 10rem;
+  height: 9.5rem;
+  animation: rubber-ducky 25s infinite linear;
+}
+
+.duck__body {
+  position: absolute;
+  width: 9rem;
+  height: 5.5rem;
+  background-color: hotpink;
+  border-radius: 2rem 2rem 5rem 5rem;
+  bottom: 0;
+  transform: rotate(5deg);
+}
+
+.duck__head {
+  position: absolute;
+  width: 4.25rem;
+  height: 4.25rem;
+  background-color: hotpink;
+  border-radius: 3rem 3rem 3rem 3rem;
+  right: 0;
+  top: 0.5rem;
+}
+
+.duck__beak__top {
+  position: absolute;
+  width: 1.5rem;
+  height: 1rem;
+  background-color: orange;
+  margin-left: 10rem;
+  border-radius: 0 2rem 4rem 0;
+  top: 2rem;
+  right: -1rem;
+  transform: rotate(-10deg);
+}
+
+.duck__beak__bottom {
+  position: absolute;
+  width: 1.25rem;
+  height: 0.75rem;
+  background-color: #ffac16;
+  margin-left: 10rem;
+  border-radius: 0 4rem 2rem 0;
+  top: 2.85rem;
+  right: -0.75rem;
+  transform: rotate(10deg);
+}
+
+.duck__eye {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: white;
+  top: 1.6rem;
+  right: 1rem;
+}
+
+.duck__iris {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: black;
+  top: 1.9rem;
+  right: 1rem;
+}
+
+.duck__wing {
+  position: absolute;
+  width: 4.5rem;
+  height: 2.75rem;
+  border-radius: 2rem 2rem 5rem 5rem;
+  background-color: #ff7ebf;
+  top: 5rem;
+  right: 2.75rem;
+  transform: rotate(5deg);
+}
+
+.duck__poof {
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+  background-color: hotpink;
+  top: 0.25rem;
+  right: 0.75rem;
+  transform: rotate(25deg);
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3.65rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rubber-ducky {
+  0% {
+    bottom: 0;
+  }
+  10% {
+    bottom: -1rem;
+    transform: translateX(10rem);
+  }
+  20% {
+    transform: translateX(20rem) rotate(-20deg);
+  }
+  30% {
+    bottom: 0;
+  }
+  40% {
+    transform: translateX(40rem) rotate(5deg);
+  }
+  47% {
+    transform: translateX(49rem) rotateY(0deg);
+  }
+  50% {
+    bottom: -1rem;
+    transform: translateX(48rem) rotateY(180deg);
+  }
+  60% {
+    transform: translateX(40rem) rotateY(180deg) rotate(10deg);
+  }
+  70% {
+    transform: translateX(30rem) rotateY(180deg) rotate(-20deg);
+  }
+  80% {
+    bottom: 0;
+    transform: translateX(20rem) rotateY(180deg) rotate(0deg);
+  }
+  90% {
+    transform: translateX(10rem) rotateY(180deg) rotate(-10deg);
+  }
+  97% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg) rotate(0deg);
+  }
+}

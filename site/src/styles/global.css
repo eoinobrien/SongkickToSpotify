@@ -4,6 +4,8 @@
   --green: SpringGreen;
 
   --link-color: #1976d2;
+
+  --light-grey: #eaeaea;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +14,7 @@
     --font-color: white;
 
     --link-color: #64b1ff;
+    --light-grey: #494949;
   }
 }
 

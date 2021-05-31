@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
 import { PlaylistCity } from '@/components/Playlist';
+import { Ducky } from '@/components/Ducky';
 import { FilterablePlaylists } from '../components/FilterablePlaylists';
 import styles from '../styles/Home.module.css';
 
@@ -34,6 +35,8 @@ export default function Home({ playlists }: IndexPageProps) {
           source={source?.toString().toLowerCase()}
         />
       </main>
+
+      {cityBreezeSounds && <Ducky />}
 
       <footer className={styles.footer}>
         <div>
