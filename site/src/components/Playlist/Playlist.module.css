@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 
-  margin: 1rem;
+  margin: 0.5rem;
   line-height: 1.5;
 
   padding: 1rem;
@@ -10,17 +10,17 @@
   border: SpringGreen 0.2rem solid;
 }
 
-.playlist a {
-  display: flex;
-  flex-direction: column;
-}
-
 .playlist a:hover {
   opacity: 0.75 !important;
 }
 
 .coverArt {
-  width: 200px;
+  max-width: 200px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
 }
 
 .spotify {
@@ -28,7 +28,8 @@
 }
 
 .spotifyButton {
-  margin-top: 0.1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
   width: 100%;
   padding: 0.5rem;
   background-color: SpringGreen;
@@ -37,4 +38,16 @@
 
 .songkick {
   color: black;
+}
+
+
+@media screen and (min-device-width: 390px) and (max-device-width: 522px){
+  .playlist {
+    flex-direction: row;
+  }
+
+  .links {
+    justify-content: space-around;
+    margin-left: 0.5rem;
+  }
 }
