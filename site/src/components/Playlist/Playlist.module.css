@@ -41,7 +41,7 @@
 }
 
 
-@media screen and (min-device-width: 390px) and (max-device-width: 522px){
+@media (min-device-width: 390px) and (max-device-width: 522px){
   .playlist {
     flex-direction: row;
   }
