@@ -1,7 +1,7 @@
 import styles from './Ducky.module.css';
 
 export const Ducky: React.FC = () => (
-  <div className={styles.Ducky}>
+  <div className={styles.ducky}>
     <div className={styles.duck}>
       <div className={styles.duck__beak__top} />
       <div className={styles.duck__beak__bottom} />

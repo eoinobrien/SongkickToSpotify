@@ -1,3 +1,7 @@
+.ducky {
+  height: 100%;
+}
+
 .duck {
   position: relative;
   width: 10rem;
@@ -91,59 +95,45 @@
   transform: rotate(25deg);
 }
 
-@keyframes wave {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-3.65rem);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 @keyframes rubber-ducky {
   0% {
     bottom: 0;
+    transform: translateX(calc(15vw - 12rem));
   }
   10% {
     bottom: -1rem;
-    transform: translateX(10rem);
+    transform: translateX(calc(30vw - 12rem));
   }
   20% {
-    transform: translateX(20rem) rotate(-20deg);
+    transform: translateX(calc(40VW - 12rem)) rotate(-20deg);
   }
   30% {
     bottom: 0;
   }
   40% {
-    transform: translateX(40rem) rotate(5deg);
+    transform: translateX(calc(80vw - 12rem)) rotate(5deg);
   }
   47% {
-    transform: translateX(49rem) rotateY(0deg);
+    transform: translateX(calc(100vw - 12rem)) rotateY(0deg);
   }
   50% {
     bottom: -1rem;
-    transform: translateX(48rem) rotateY(180deg);
+    transform: translateX(calc(100vw - 12rem)) rotateY(180deg);
   }
   60% {
-    transform: translateX(40rem) rotateY(180deg) rotate(10deg);
+    transform: translateX(calc(80vw - 12rem)) rotateY(180deg) rotate(10deg);
   }
   70% {
-    transform: translateX(30rem) rotateY(180deg) rotate(-20deg);
+    transform: translateX(calc(60vw - 12rem)) rotateY(180deg) rotate(-20deg);
   }
   80% {
     bottom: 0;
-    transform: translateX(20rem) rotateY(180deg) rotate(0deg);
+    transform: translateX(calc(40vw - 12rem)) rotateY(180deg) rotate(0deg);
   }
   90% {
-    transform: translateX(10rem) rotateY(180deg) rotate(-10deg);
-  }
-  97% {
-    transform: rotateY(180deg);
+    transform: translateX(calc(30vw - 12rem)) rotateY(180deg) rotate(-10deg);
   }
   100% {
-    transform: translateX(0) rotateY(0deg) rotate(0deg);
+    transform: translateX(calc(15vw - 12rem)) rotateY(0deg) rotate(0deg);
   }
 }
