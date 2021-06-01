@@ -66,7 +66,14 @@ function New-DefaultCoverArt([PlaylistType] $playlistType, [string] $city)
     Move-Item $resizedImagePath $smallImageOutputPath -Force
 }
 
-function Resize-CoverArtImage($file)
+function Resize-CoverArtImage([PlaylistType] $playlistType, [string] $city)
 {
-    Resize-Image -ImagePath $file -MaintainRatio -Width 400
+    $cityImagePath = $city -replace '\s','' -replace ',',''
+    $outputPath = "$PSScriptRoot\..\site\src\components\Playlist\cover-art\$playlistType\FullSizeBackup\$cityImagePath.jpg";
+    
+    Resize-Image -ImagePath $outputPath -MaintainRatio -Width 400
+
+    $resizedImagePath = "$PSScriptRoot\..\site\src\components\Playlist\cover-art\$playlistType\FullSizeBackup\$cityImagePath"+"_resized.jpg";
+    $smallImageOutputPath = "$PSScriptRoot\..\site\src\components\Playlist\cover-art\$playlistType\$cityImagePath.jpg";
+    Move-Item $resizedImagePath $smallImageOutputPath -Force
 }
