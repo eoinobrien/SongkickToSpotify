@@ -39,13 +39,19 @@ export default function Home({ playlists }: IndexPageProps) {
       {cityBreezeSounds && <Ducky />}
 
       <footer className={styles.footer}>
-        <div>
-          <p>
-            Playlists are updated daily using Concert data from{` `}
-            <a href="https://www.songkick.com">Songkick</a>.
-          </p>
-        </div>
-        <div>
+        <p>
+          Playlists are updated daily using Concert data from{` `}
+          <a href="https://www.songkick.com">Songkick</a>.
+        </p>
+        <p>
+          <a
+            href="https://github.com/eoinobrien/SongkickToSpotify"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Interested in how this all works?
+          </a>
+          {` `}
           <a
             href="https://eoinobrien.ie"
             target="_blank"
@@ -53,7 +59,7 @@ export default function Home({ playlists }: IndexPageProps) {
           >
             Created by Eoin O&apos;Brien
           </a>
-        </div>
+        </p>
       </footer>
     </div>
   );
