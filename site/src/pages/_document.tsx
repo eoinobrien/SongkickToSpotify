@@ -29,7 +29,7 @@ class MyDocument extends Document {
           <script
             async
             defer
-            data-domain="eoinobrien.github.io/songkicktospotify"
+            data-domain="upcoming.city"
             src="https://plausible.eoin.co/js/plausible.js"
           />
         </Head>
