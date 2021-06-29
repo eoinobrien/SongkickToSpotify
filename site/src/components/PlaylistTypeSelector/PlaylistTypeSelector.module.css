@@ -14,7 +14,7 @@
   margin-right: 0.5rem;
   padding: 0.5rem;
   border: var(--green) 0.2rem solid;
-  color: var(--green);
+  color: var(--font-color);
 }
 
 .playlistTypeSelectorCheckbox {
