@@ -1,3 +1,17 @@
 .filterablePlaylists {
   width: 100%;
 }
+
+.filterSection {
+  display: flex;
+}
+
+.search {
+  flex-grow: 10;
+}
+
+@media (max-device-width: 560px){
+  .filterSection {
+    flex-direction: column;
+  }
+}

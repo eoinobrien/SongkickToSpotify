@@ -1,0 +1,28 @@
+.playlistTypeSelector fieldset {
+  border: none;
+  padding: 0;
+}
+
+.playlistTypeSelector legend {
+  display: inline-block;
+  font-family: var(--heading-font-family);
+}
+
+.playlistTypeSelectorLabel {
+  display: inline-block;
+  font-family: var(--heading-font-family);
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border: var(--green) 0.2rem solid;
+  color: var(--green);
+}
+
+.playlistTypeSelectorCheckbox {
+  display: none;
+}
+
+.playlistTypeSelectorCheckbox:checked + .playlistTypeSelectorLabel {
+  color: black;
+  background-color: var(--green);
+}
+

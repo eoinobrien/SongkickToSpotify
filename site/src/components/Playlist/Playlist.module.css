@@ -44,7 +44,6 @@
   color: var(--font-color);
 }
 
-
 @media (min-device-width: 390px) and (max-device-width: 522px){
   .playlist {
     flex-direction: row;
