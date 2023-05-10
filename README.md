@@ -1,5 +1,13 @@
 # Upcoming.city
 
+----------
+
+## Unfortunately, due to the Songkick API no longer supporting hobby applications, this project no longer works.
+
+There are currently no plans to find a workaround to this issue
+
+----------
+
 A playlists of the top tracks of artists playing in a city in the coming period, update daily.
 
 [See current list of Playlists](https://www.upcoming.city)
