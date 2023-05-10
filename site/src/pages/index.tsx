@@ -24,12 +24,14 @@ export default function Home({ playlists }: IndexPageProps) {
       <main className={styles.main}>
         <h1 className={styles.title}>Upcoming</h1>
         {cityBreezeSounds && <h2>City Breeze Sounds!</h2>}
+        
+        <h2 className={styles.projectBroken}>Unfortunately, due to the <a href="https://www.songkick.com/developer">Songkick API</a> no longer supporting hobby applications, this project no longer works</h2>
 
         <p className={styles.description}>
           Each playlist contains the top songs for artists who are performing in
           that city in the coming period. Playlists are updated daily.
         </p>
-
+                
         <FilterablePlaylists
           playlists={playlists}
           source={source?.toString().toLowerCase()}

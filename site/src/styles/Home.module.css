@@ -43,6 +43,12 @@
   font-size: 4rem;
 }
 
+.projectBroken {
+  background: yellow;
+  padding: 1rem;
+  line-height: 1;
+}
+
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
