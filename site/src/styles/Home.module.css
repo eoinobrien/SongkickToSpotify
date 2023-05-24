@@ -45,6 +45,7 @@
 
 .projectBroken {
   background: yellow;
+  color: black;
   padding: 1rem;
   line-height: 1;
 }
